@@ -1264,10 +1264,27 @@ span {
 }
 .brand-wrapper .brand-image {
   text-align: center;
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease-in-out;
+}
+.brand-wrapper .brand-image img {
+  width: auto !important;
+  max-width: 192px;
+  max-height: 60px;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.7;
   transition: all 0.4s ease-in-out;
 }
 .brand-wrapper .brand-image:hover {
-  filter: brightness(0);
+  filter: none;
+}
+.brand-wrapper .brand-image:hover img {
+  opacity: 1;
 }
 .brand-wrapper.style-2 {
   background-color: var(--bg2);
@@ -1294,10 +1311,26 @@ span {
   display: inline-block;
   text-align: center;
   border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.brand-wrapper-2 .gt-brand-img img {
+  width: auto !important;
+  max-width: 216px;
+  max-height: 68px;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.7;
+  transition: all 0.4s ease-in-out;
+}
+.brand-wrapper-2 .gt-brand-img:hover img {
+  opacity: 1;
 }
 .brand-wrapper-2.dark-border-style .gt-brand-img {
   border: 1px solid rgba(255, 255, 255, 0.2);
-  filter: brightness(5);
+  filter: none;
 }
 
 .gt-slide-transtion {
