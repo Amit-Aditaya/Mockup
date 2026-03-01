@@ -289,6 +289,21 @@ span {
   border-radius: 60px;
   margin: 0 30px;
 }
+.about-section.about-gradient-theme {
+  background: linear-gradient(135deg, var(--header) 0%, var(--header2) 62%, var(--theme) 170%);
+}
+.about-section.about-gradient-theme .section-title h6 {
+  color: var(--theme);
+}
+.about-section.about-gradient-theme .about-wrapper .about-content ul .about-list .content h3 {
+  color: var(--theme);
+}
+.about-section.about-gradient-theme .about-wrapper .about-content ul .about-list .content p {
+  color: var(--white);
+}
+.about-section.about-gradient-theme .about-wrapper .about-image-items .about-items p {
+  color: var(--white);
+}
 @media (max-width: 1399px) {
   .about-section {
     border-radius: 0;
