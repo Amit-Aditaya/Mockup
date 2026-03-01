@@ -3988,6 +3988,13 @@ span {
   font-weight: 600;
   color: var(--theme);
 }
+.hero-1 .hero-content h1 .typing-line {
+  display: block;
+}
+.hero-1 .hero-content h1 .typing-line #typing-text {
+  display: inline-block;
+  min-width: 8ch;
+}
 @media (max-width: 1399px) {
   .hero-1 .hero-content h1 br {
     display: none;
@@ -4079,7 +4086,7 @@ span {
 }
 .hero-1 .client-info h4 {
   color: var(--white);
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 400;
   text-transform: uppercase;
 }
@@ -4092,18 +4099,63 @@ span {
   background: linear-gradient(103deg, rgba(255, 255, 255, 0.1) 9.75%, rgba(255, 255, 255, 0) 62.39%);
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 30px 40px;
+  gap: 8px;
+  padding: 20px 28px;
   position: absolute;
-  right: 60px;
-  bottom: 160px;
+  right: 80px;
+  top: 46%;
+  transform: translateY(-50%);
+  bottom: auto;
+}
+.hero-1 .hero-content .hero-content-client-info {
+  position: static;
+  right: auto;
+  top: auto;
+  bottom: auto;
+  transform: none;
+  margin: 0 0 20px;
+  width: fit-content;
+}
+.hero-1 .client-info img {
+  width: 70px;
+  height: auto;
 }
 @media (max-width: 1399px) {
   .hero-1 .client-info {
     position: static;
-    max-width: 400px;
+    transform: none;
+    max-width: 340px;
     margin-top: 40px;
     margin-left: 40px;
+  }
+}
+@media (max-width: 767px) {
+  .hero-1 .client-info {
+    width: fit-content;
+    max-width: none;
+    padding: 10px 14px;
+    gap: 6px;
+    margin: 16px 0 0 30px;
+    border-radius: 999px;
+  }
+  .hero-1 .client-info h4 {
+    font-size: 16px;
+    line-height: 1.1;
+  }
+  .hero-1 .client-info img {
+    width: 50px;
+  }
+}
+@media (max-width: 575px) {
+  .hero-1 .client-info {
+    padding: 8px 12px;
+    gap: 5px;
+  }
+  .hero-1 .client-info h4 {
+    font-size: 14px;
+  }
+  .hero-1 .client-info img {
+    width: 44px;
   }
 }
 

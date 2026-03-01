@@ -563,12 +563,14 @@
 
     // Type text area start here ***
     $(document).ready(function () {
-        const words = ["Developer", "Desinger", "Crypto"];
+        const words = ["Creator", "Promoter", "Partner"];
         let index = 0;
         let letterIndex = 0;
         let direction = 1;
         let currentWord = words[0];
         let interval;
+
+        $("#typing-text").text("");
 
         function typeWriter() {
             const word = words[index];
