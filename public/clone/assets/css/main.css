@@ -107,6 +107,33 @@ Version: 1.0.0
   filter: grayscale(100%) brightness(300%);
   transition: all 0.4s ease-in-out;
 }
+.cta-wrapper .theme-btn.cta-primary-static {
+  background-color: var(--theme);
+  border: 1px solid var(--theme);
+  color: var(--header);
+  transition: none;
+   margin-top: 65px;
+}
+.cta-wrapper .theme-btn.cta-primary-static::after {
+  display: none;
+}
+.cta-wrapper .theme-btn.cta-primary-static:hover {
+  background-color: var(--theme);
+  border: 1px solid var(--theme);
+  color: var(--header);
+}
+.cta-wrapper .theme-btn.cta-primary-static .icon-1,
+.cta-wrapper .theme-btn.cta-primary-static .icon-2,
+.cta-wrapper .theme-btn.cta-primary-static .icon-1 img,
+.cta-wrapper .theme-btn.cta-primary-static .icon-2 img {
+  filter: none;
+}
+.cta-wrapper .theme-btn.cta-primary-static:hover .icon-1,
+.cta-wrapper .theme-btn.cta-primary-static:hover .icon-2,
+.cta-wrapper .theme-btn.cta-primary-static:hover .icon-1 img,
+.cta-wrapper .theme-btn.cta-primary-static:hover .icon-2 img {
+  filter: none;
+}
 .theme-btn.border-white-2 {
   border: 1px solid var(--white);
   color: var(--white);
@@ -3740,6 +3767,10 @@ span {
 @media (max-width: 767px) {
   br {
     display: none;
+  }
+
+  .cta-wrapper h2 br {
+    display: block !important;
   }
 }
 
