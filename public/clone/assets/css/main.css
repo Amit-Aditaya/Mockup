@@ -379,18 +379,25 @@ span {
 .about-wrapper .about-image-items .about-caption-text {
   color: var(--white);
   text-align: center;
-  font-size: clamp(24px, 2vw, 42px);
-  font-weight: 500;
-  line-height: 1.55;
-  letter-spacing: -0.01em;
+  font-family: "Teko", sans-serif;
+  font-size: clamp(30px, 2.8vw, 52px);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  background: linear-gradient(90deg, var(--white) 0%, var(--theme) 45%, var(--white) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   max-width: 940px;
-  margin: 8px auto 0;
+  margin: 14px auto 0;
+  padding: 0 12px;
   text-wrap: balance;
 }
 @media (max-width: 767px) {
   .about-wrapper .about-image-items .about-caption-text {
-    font-size: clamp(20px, 6vw, 28px);
-    line-height: 1.5;
+    font-size: clamp(24px, 8vw, 34px);
+    line-height: 1.25;
   }
 }
 .about-wrapper .about-image-items .about-thumb img {
