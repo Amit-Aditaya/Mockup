@@ -7007,34 +7007,38 @@ input.main-search-input::placeholder {
   border-bottom: 1px solid var(--border);
 }
 .service-wrapper ul .service-list .content h3 {
-  font-size: 150px;
+  font-size: 56px;
   font-weight: 500;
+  line-height: 1.15;
   transition: all 0.4s ease-in-out;
 }
 @media (max-width: 1399px) {
   .service-wrapper ul .service-list .content h3 {
-    font-size: 130px;
+    font-size: 50px;
   }
 }
 @media (max-width: 1199px) {
   .service-wrapper ul .service-list .content h3 {
-    font-size: 120px;
+    font-size: 44px;
   }
 }
 @media (max-width: 991px) {
   .service-wrapper ul .service-list .content h3 {
-    font-size: 100px;
+    font-size: 36px;
   }
 }
 @media (max-width: 767px) {
   .service-wrapper ul .service-list .content h3 {
-    font-size: 80px;
+    font-size: 30px;
   }
 }
 @media (max-width: 575px) {
   .service-wrapper ul .service-list .content h3 {
-    font-size: 65px;
+    font-size: 24px;
   }
+}
+.service-wrapper ul .service-list .content h3 a {
+  white-space: nowrap;
 }
 .service-wrapper ul .service-list .content h3 a:hover {
   color: var(--theme);
