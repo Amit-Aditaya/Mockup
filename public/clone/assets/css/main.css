@@ -2106,7 +2106,9 @@ span {
   line-height: 40px;
   text-align: center;
   font-size: 16px;
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: transparent;
   color: var(--text2);
   border: 1px solid var(--text2);
@@ -2114,6 +2116,11 @@ span {
   -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
   text-align: center;
+}
+.footer-wrapper .footer-wrapper-items .footer-social-contact .social-icon a svg {
+  width: 18px;
+  height: 18px;
+  display: block;
 }
 .footer-wrapper .footer-wrapper-items .footer-social-contact .social-icon a:hover {
   background-color: var(--black);
@@ -2141,6 +2148,18 @@ span {
   font-family: "Teko", sans-serif;
   text-transform: uppercase;
   text-align: right;
+}
+.footer-wrapper .exolax-text {
+  display: block;
+  width: 100%;
+  font-family: "Teko", sans-serif;
+  font-size: clamp(120px, 28vw, 560px);
+  font-weight: 700;
+  line-height: 0.85;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--black);
+  text-decoration: none;
 }
 @media (max-width: 575px) {
   .footer-wrapper .footer-wrapper-items p {
@@ -8136,6 +8155,18 @@ input.main-search-input::placeholder {
   gap: 15px;
   margin-bottom: 30px;
 }
+.testimonial-wrapper .testimonial-box-items .client-info img {
+  display: none;
+}
+.testimonial-wrapper .testimonial-box-items .client-info::before {
+  content: "";
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0f1724 0%, #1f2937 100%);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.55);
+  flex: 0 0 auto;
+}
 .testimonial-wrapper .testimonial-box-items .client-info .client-content h5 {
   color: var(--white);
   font-weight: 500;
@@ -8241,6 +8272,9 @@ input.main-search-input::placeholder {
 }
 .testimonial-wrapper-3 .testimonial-content .client-info {
   margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
 }
 @media (max-width: 1199px) {
   .testimonial-wrapper-3 .testimonial-content .client-info {
@@ -8248,7 +8282,16 @@ input.main-search-input::placeholder {
   }
 }
 .testimonial-wrapper-3 .testimonial-content .client-info img {
-  border-radius: 10px;
+  display: none;
+}
+.testimonial-wrapper-3 .testimonial-content .client-info::before {
+  content: "";
+  width: 88px;
+  height: 88px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #0f1724 0%, #1f2937 100%);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  flex: 0 0 auto;
 }
 .testimonial-wrapper-3 .testimonial-content .client-info .content {
   margin-top: 20px;
