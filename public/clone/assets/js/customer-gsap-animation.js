@@ -40,6 +40,32 @@
 			ignoreMobileResize: true,
 		});
 
+		$(document).on('click', 'a[href^="#"]', function (event) {
+			const targetSelector = this.getAttribute('href');
+			if (!targetSelector || targetSelector === '#') return;
+			const targetElement = document.querySelector(targetSelector);
+			if (!targetElement) return;
+
+			event.preventDefault();
+			smoother.scrollTo(targetElement, true, 'top top');
+			if (history.replaceState) {
+				history.replaceState(null, '', window.location.pathname + window.location.search);
+			}
+		});
+
+		if (window.location.hash) {
+			const initialTarget = document.querySelector(window.location.hash);
+			if (initialTarget) {
+				setTimeout(function () {
+					smoother.scrollTo(initialTarget, false, 'top top');
+					ScrollTrigger.refresh();
+					if (history.replaceState) {
+						history.replaceState(null, '', window.location.pathname + window.location.search);
+					}
+				}, 50);
+			}
+		}
+
 	}
 	
 

@@ -617,11 +617,20 @@
    
 
     function loader() {
-        $(window).on('load', function() {
-            // Animate loader off screen
-            $(".preloader").addClass('loaded');                    
-            $(".preloader").delay(3600).fadeOut();                       
-        });
+        const hidePreloader = function() {
+            const $preloader = $(".preloader");
+            if (!$preloader.length || $preloader.hasClass('loaded')) return;
+
+            $preloader.addClass('loaded');
+            $preloader.css('pointer-events', 'none');
+            $preloader.stop(true, true).fadeOut(200, function() {
+                $(this).remove();
+            });
+        };
+
+        $(window).on('load', hidePreloader);
+
+        setTimeout(hidePreloader, 700);
     }
 
     loader();
