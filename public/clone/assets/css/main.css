@@ -331,6 +331,26 @@ span {
 .about-section.about-gradient-theme .about-wrapper .about-image-items .about-items p {
   color: var(--white);
 }
+.about-section.about-gradient-theme .about-wrapper .about-image-items .about-items .thumb,
+.about-section.about-gradient-theme .about-wrapper .about-image-items .about-thumb {
+  margin-bottom: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  aspect-ratio: 4/5;
+}
+.about-section.about-gradient-theme .about-wrapper .about-image-items .about-items .thumb img,
+.about-section.about-gradient-theme .about-wrapper .about-image-items .about-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+@media (max-width: 767px) {
+  .about-section.about-gradient-theme .about-wrapper .about-image-items .about-items .thumb,
+  .about-section.about-gradient-theme .about-wrapper .about-image-items .about-thumb {
+    aspect-ratio: 4/3;
+  }
+}
 @media (max-width: 1399px) {
   .about-section {
     border-radius: 0;
