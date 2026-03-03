@@ -2073,6 +2073,8 @@ span {
   justify-content: space-between;
   margin-top: -5px;
   margin-bottom: 60px;
+  position: relative;
+  z-index: 2;
 }
 @media (max-width: 767px) {
   .footer-wrapper .footer-wrapper-items {
@@ -2106,7 +2108,9 @@ span {
   line-height: 40px;
   text-align: center;
   font-size: 16px;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: transparent;
   color: var(--text2);
   border: 1px solid var(--text2);
@@ -2145,6 +2149,8 @@ span {
 .footer-wrapper .exolax-text {
   display: block;
   width: 100%;
+  position: relative;
+  z-index: 1;
   font-family: "Teko", sans-serif;
   font-size: clamp(120px, 28vw, 560px);
   font-weight: 700;
@@ -3493,7 +3499,9 @@ span {
   line-height: 52px;
   text-align: center;
   font-size: 16px;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: transparent;
   color: var(--header);
   -webkit-transition: all 0.4s ease-in-out;
@@ -6724,7 +6732,9 @@ input.main-search-input::placeholder {
   line-height: 40px;
   text-align: center;
   font-size: 16px;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: transparent;
   color: rgba(254, 254, 254, 0.5);
   border: 1px solid rgba(255, 255, 255, 0.5);
@@ -7982,7 +7992,9 @@ input.main-search-input::placeholder {
   line-height: 40px;
   text-align: center;
   font-size: 16px;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 30px;
   background: #F8F8F8;
   color: var(--black);

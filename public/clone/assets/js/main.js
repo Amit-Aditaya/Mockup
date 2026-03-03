@@ -556,6 +556,18 @@
             return false;
         });
 
+        $(document).on('click', '.social-icon a[aria-label="Facebook"], .social-icon a[aria-label="Instagram"]', function(e) {
+            const url = $(this).attr('href');
+
+            if (!url || url === '#') {
+                return;
+            }
+
+            e.preventDefault();
+            e.stopPropagation();
+            window.open(url, '_blank', 'noopener,noreferrer');
+        });
+
 
     }); // End Document Ready Function
 
