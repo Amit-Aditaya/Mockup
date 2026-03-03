@@ -449,14 +449,25 @@ function initSimulation() {
     mouse.element.removeEventListener("mousewheel", mouse.mousewheel);
     mouse.element.removeEventListener("DOMMouseScroll", mouse.mousewheel);
 
-    // Detect clicks vs. drags
+    // Detect clicks vs. drags and ignore native UI interactions
     let click = false;
+    let ignoreMatterClick = false;
 
-    document.addEventListener("mousedown", () => (click = true));
+    document.addEventListener("mousedown", (event) => {
+      click = true;
+      ignoreMatterClick = Boolean(
+        event.target.closest("a, button, input, textarea, select, label"),
+      );
+    });
     document.addEventListener("mousemove", () => (click = false));
 
     // Create a On-Mouseup Event-Handler
     Events.on(mouseConstraint, "mouseup", function (event) {
+      if (ignoreMatterClick) {
+        ignoreMatterClick = false;
+        return;
+      }
+
       var mouseConstraint = event.source;
       var bodies = engine.world.bodies;
       if (!mouseConstraint.bodyB) {

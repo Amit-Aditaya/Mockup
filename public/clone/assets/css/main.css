@@ -2106,9 +2106,7 @@ span {
   line-height: 40px;
   text-align: center;
   font-size: 16px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
   background: transparent;
   color: var(--text2);
   border: 1px solid var(--text2);
@@ -2116,11 +2114,6 @@ span {
   -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
   text-align: center;
-}
-.footer-wrapper .footer-wrapper-items .footer-social-contact .social-icon a svg {
-  width: 18px;
-  height: 18px;
-  display: block;
 }
 .footer-wrapper .footer-wrapper-items .footer-social-contact .social-icon a:hover {
   background-color: var(--black);
