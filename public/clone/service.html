@@ -9,9 +9,10 @@
         <meta name="author" content="Gramentheme">
         <meta name="description" content="Exolax - Creative Agency Html Template">
         <!-- ======== Page title ============ -->
-        <title>Exolax - Creative Agency Html Template</title>
+        <title>Mockup</title>
         <!--<< Favcion >>-->
-        <link rel="shortcut icon" href="assets/img/favicon.svg">
+        <link rel="icon" type="image/png" href="images/mockup_logo/logo-vertical.png">
+        <link rel="shortcut icon" href="images/mockup_logo/logo-vertical.png">
         <!--<< Bootstrap min.css >>-->
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
         <!--<< Animate.css >>-->
@@ -76,11 +77,6 @@
             </div>
         </div>
 
-        <!-- Back To Top Start -->
-        <button id="back-top" class="back-to-top">
-            
-        </button>
-
         <!--<< Mouse Cursor Start >>-->  
         <div class="mouse-cursor cursor-outer"></div>
         <div class="mouse-cursor cursor-inner"></div>
@@ -93,7 +89,7 @@
                         <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
                             <div class="offcanvas__logo">
                                 <a href="index.html">
-                                    <img src="assets/img/logo/black-logo.svg" alt="logo-img">
+                                    <img src="images/mockup_logo/logo-horizontal.png" alt="logo-img" style="max-height: 48px; width: auto;">
                                 </a>
                             </div>
                             <div class="offcanvas__close">
@@ -156,7 +152,7 @@
                     <div class="header-main">
                         <div class="logo">
                             <a href="index.html" class="header-logo">
-                                <img src="assets/img/logo/white-logo.svg" alt="logo-img">
+                                <img src="images/mockup_logo/logo-horizontal.png" alt="logo-img" style="max-height: 48px; width: auto;">
                             </a>
                         </div>
                         <div class="mean__menu-wrapper">
@@ -235,8 +231,8 @@
                                         Home
                                     </a>
                                 </li>
-                                <li>
-                                    
+                                <li aria-hidden="true" style="position: relative; width: 0;">
+                                    <span style="position: absolute; left: 50%; transform: translateX(-50%);">/</span>
                                 </li>
                                 <li>
                                     Services
@@ -331,11 +327,11 @@
                 </section>
 
                 <!-- Cta Section Start -->
-                <section class="cta-section fix section-padding pt-0 dark-bg-style black-bg">
+                <section id="contact-us" class="cta-section fix section-padding section-bg margin-top-10 pt-0">
                     <div class="container">
                         <div class="cta-wrapper bg-cover" style="background-color: #000; background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('images/MOCKUP-banner-wide-png.png');">
-                            <h2 class="wow fadeInUp" data-wow-delay=".3s">Have an idea in your mind?Let’s make something great together</h2>
-                            <a href="index.html#contact-us" class="theme-btn cta-primary-static wow fadeInUp" data-wow-delay=".5s">
+                            <h2 class="wow fadeInUp" data-wow-delay=".3s">Got an idea? <br> Let’s build something great.</h2>
+                            <a href="#contact-us" class="theme-btn cta-primary-static wow fadeInUp" data-wow-delay=".5s">
                                 <span class="icon-1">
                                     <img src="assets/img/icon/10.svg" alt="img">
                                 </span>
@@ -349,17 +345,29 @@
                 </section>
 
                 <!-- Footer Section Start -->
-                <footer class="footer-section dark-section-bg">
+                <footer class="footer-section">
                     <div class="container custom-container">
-                        <div class="footer-wrapper dark-text-style">
+                        <div class="footer-wrapper">
                             <div class="footer-wrapper-items">
                                 <div class="footer-social-contact wow fadeInUp" data-wow-delay=".3s">
-                                    <ul class="contact-list">
-                                        <li>
-                                            <a href="mailto:info@example.com">info@example.com</a>
+                                    <ul class="contact-list" style="list-style: none; padding-left: 0;">
+                                        <li style="display: flex; align-items: center; gap: 12px; text-decoration: none; text-transform: none;">
+                                            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+                                                <path fill="currentColor" d="M3 6.75A2.75 2.75 0 0 1 5.75 4h12.5A2.75 2.75 0 0 1 21 6.75v10.5A2.75 2.75 0 0 1 18.25 20H5.75A2.75 2.75 0 0 1 3 17.25V6.75zm2 .31V17.25c0 .41.34.75.75.75h12.5a.75.75 0 0 0 .75-.75V7.06l-6.26 4.7a1.25 1.25 0 0 1-1.5 0L5 7.06zm1.74-1.06L12 9.94 17.26 6H6.74z"/>
+                                            </svg>
+                                            <a href="mailto:mockup.design.bd@gmail.com" style="text-decoration: none; text-transform: none;">mockup.design.bd@gmail.com</a>
                                         </li>
-                                        <li>
-                                            <a href="tel:+19876543210">+1 987 654 3210</a>
+                                        <li style="display: flex; align-items: center; gap: 12px; text-decoration: none; text-transform: none;">
+                                            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+                                                <path fill="currentColor" d="M6.62 3.52a1.75 1.75 0 0 1 2.17-1.1l2.16.72a1.75 1.75 0 0 1 1.17 1.8l-.14 2.3a1.75 1.75 0 0 1-.87 1.4l-1.35.78a14.36 14.36 0 0 0 4.72 4.72l.78-1.35a1.75 1.75 0 0 1 1.4-.87l2.3-.14a1.75 1.75 0 0 1 1.8 1.17l.72 2.16a1.75 1.75 0 0 1-1.1 2.17l-1.55.52a4.75 4.75 0 0 1-4.17-.6A19.88 19.88 0 0 1 6.28 9.24a4.75 4.75 0 0 1-.6-4.17l.94-1.55z"/>
+                                            </svg>
+                                            <a href="tel:+8801839397446" style="text-decoration: none; text-transform: none;">+880 1839 397446</a>
+                                        </li>
+                                        <li style="display: flex; align-items: center; gap: 12px; text-decoration: none; text-transform: none;">
+                                            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+                                                <path fill="currentColor" d="M12 2.5a7.25 7.25 0 0 1 7.25 7.25c0 4.67-5.28 10.26-6.77 11.74a.69.69 0 0 1-.97 0C10.03 20 4.75 14.42 4.75 9.75A7.25 7.25 0 0 1 12 2.5zm0 2a5.25 5.25 0 0 0-5.25 5.25c0 2.99 3.13 7.08 5.25 9.42 2.12-2.34 5.25-6.43 5.25-9.42A5.25 5.25 0 0 0 12 4.5zm0 2.5a2.75 2.75 0 1 1 0 5.5 2.75 2.75 0 0 1 0-5.5z"/>
+                                            </svg>
+                                            <span style="text-decoration: none; text-transform: none;">West Barontek, Pallabi, Mirpur,<br>Dhaka, Bangladesh</span>
                                         </li>
                                     </ul>
                                     <div class="social-icon d-flex align-items-center">
@@ -376,18 +384,16 @@
 </div>
                                 </div>
                                 <div class="footer-author wow fadeInUp" data-wow-delay=".5s">
-                                    <span>Designer by</span>
-                                    <h4><a href="index.html">gramentheme.com</a></h4>
+                                    <span>Designed by</span>
+                                    <h4><a href="https://maatrik.it.com" target="_blank" rel="noopener noreferrer">Maatrik IT</a></h4>
                                 </div>
                                 <p class="wow fadeInUp" data-wow-delay=".7s">
-                                    ©2025 <br>
-                                    exolax design <br>
+                                    ©2026 <br>
+                                    mockup design <br>
                                     all rights reserved
                                 </p>
                             </div>
-                            <a href="index.html" class="exolax-text">
-                                <img src="assets/img/exolax-white.svg" alt="img" class="wow img-custom-anim-bottom">
-                            </a>
+                            <a href="index.html" class="exolax-text">MOCKUP</a>
                         </div>
                     </div>
                 </footer>
