@@ -64,6 +64,11 @@
             time: 4000,
         });
 
+        $(".metric-count").counterUp({
+            delay: 15,
+            time: 4000,
+        });
+
         //>> Wow Animation Start <<//
         new WOW().init();
 
