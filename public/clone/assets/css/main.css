@@ -1408,16 +1408,16 @@ span {
   background-color: var(--white);
 }
 .metrics-wrapper {
-  padding: 70px 0;
+  padding: 62px 0;
 }
 .metrics-content h2 {
   color: var(--header2);
   font-family: "Teko", sans-serif;
-  font-size: clamp(42px, 5vw, 72px);
+  font-size: clamp(38px, 4.6vw, 66px);
   text-transform: uppercase;
   letter-spacing: 0.01em;
   line-height: 0.95;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   text-align: center;
 }
 .metrics-content h2 span {
@@ -1426,27 +1426,27 @@ span {
 .metrics-card {
   background-color: var(--white);
   border: 1px solid var(--border);
-  border-radius: 26px;
-  padding: 44px;
+  border-radius: 24px;
+  padding: 38px;
   box-shadow: var(--box-shadow);
 }
 .metrics-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 34px 24px;
+  gap: 28px 20px;
 }
 .metric-item {
   text-align: center;
 }
 .metric-item h3 {
   color: var(--theme);
-  font-size: 96px;
+  font-size: 84px;
   line-height: 0.9;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 .metric-item p {
   color: var(--text2);
-  font-size: 40px;
+  font-size: 34px;
   line-height: 1;
   font-family: "Teko", sans-serif;
   margin-bottom: 0;
@@ -1454,13 +1454,13 @@ span {
 }
 @media (max-width: 1199px) {
   .metrics-card {
-    padding: 36px 30px;
+    padding: 32px 28px;
   }
   .metric-item h3 {
-    font-size: 72px;
+    font-size: 64px;
   }
   .metric-item p {
-    font-size: 30px;
+    font-size: 28px;
   }
 }
 @media (max-width: 991px) {
@@ -1470,26 +1470,26 @@ span {
 }
 @media (max-width: 767px) {
   .metrics-wrapper {
-    padding: 50px 0;
+    padding: 44px 0;
   }
   .metrics-content h2 {
-    margin-bottom: 18px;
+    margin-bottom: 14px;
   }
   .metrics-grid {
-    gap: 22px 16px;
+    gap: 20px 14px;
   }
   .metric-item h3 {
-    font-size: 58px;
+    font-size: 52px;
     margin-bottom: 8px;
   }
   .metric-item p {
-    font-size: 24px;
+    font-size: 22px;
   }
 }
 @media (max-width: 575px) {
   .metrics-card {
-    border-radius: 20px;
-    padding: 26px 18px;
+    border-radius: 18px;
+    padding: 24px 16px;
   }
   .metrics-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));

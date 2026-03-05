@@ -7,9 +7,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="Gramentheme">
-        <meta name="description" content="Exolax - Creative Agency Html Template">
+        <meta name="description" content="MOCKUP - Our Story">
         <!-- ======== Page title ============ -->
-        <title>Mockup</title>
+        <title>Mockup | Our Story</title>
         <!--<< Favcion >>-->
         <link rel="icon" type="image/png" href="images/mockup_logo/logo-vertical.png">
         <link rel="shortcut icon" href="images/mockup_logo/logo-vertical.png">
@@ -29,8 +29,62 @@
         <link rel="stylesheet" href="assets/css/color.css">
         <!--<< Main.css >>-->
         <link rel="stylesheet" href="assets/css/main.css">
+        <style>
+            .story-intro {
+                background-color: var(--header);
+                border-radius: 24px;
+                padding: 48px;
+            }
+
+            .story-intro h2 {
+                color: var(--white);
+                margin-bottom: 24px;
+            }
+
+            .story-intro p {
+                color: var(--white);
+                opacity: 0.88;
+                margin-bottom: 20px;
+            }
+
+            .story-intro p:last-child {
+                margin-bottom: 0;
+            }
+
+            .story-intro .highlight {
+                color: var(--theme);
+            }
+
+            .story-image img {
+                width: 100%;
+                height: 100%;
+                min-height: 560px;
+                object-fit: cover;
+                border-radius: 24px;
+            }
+
+            @media (max-width: 991px) {
+                .story-intro {
+                    padding: 36px;
+                }
+
+                .story-image img {
+                    min-height: 420px;
+                }
+            }
+
+            @media (max-width: 575px) {
+                .story-intro {
+                    padding: 28px;
+                }
+
+                .story-image img {
+                    min-height: 320px;
+                }
+            }
+        </style>
     </head>
-    <body >
+    <body>
 
          <!-- Preloader Start -->
          <div id="preloader" class="preloader">
@@ -60,6 +114,11 @@
             </div>
         </div>
 
+        <!-- Back To Top Start -->
+        <button id="back-top" class="back-to-top">
+            <span aria-hidden="true">↑</span>
+        </button>
+
         <!--<< Mouse Cursor Start >>-->  
         <div class="mouse-cursor cursor-outer"></div>
         <div class="mouse-cursor cursor-inner"></div>
@@ -77,13 +136,13 @@
                             </div>
                             <div class="offcanvas__close">
                                 <button>
-                                
+                                <span aria-hidden="true">✕</span>
                                 </button>
                             </div>
                         </div>
                         <h3 class="offcanvas-title">About Us</h3>
                         <p>
-                            The argument in favor of using filler text goes something like this: If you use arey real content in the Consulting Process anytime you reachtent
+                            MOCKUP is a leading creative agency in Bangladesh, turning ideas into impactful brand experiences.
                         </p>
                         <div class="social-icon d-flex align-items-center">
     <a href="https://www.facebook.com/mockupagency" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
@@ -105,20 +164,19 @@
                                     <span>
                                         Address:
                                     </span>
-                                    7300-7398 Colonial Rd,
-                                    Brooklyn, NY 11209
+                                    West Barontek, Pallabi, Mirpur, Dhaka, Bangladesh
                                 </li>
                                 <li>
                                     <span>
                                         Call Us:
                                     </span>
-                                    <a href="tel:+00012345688">+000 123 456 88</a>
+                                    <a href="tel:+8801839397446">+880 1839 397446</a>
                                 </li>
                                 <li>
                                     <span>
                                         Email:
                                     </span>
-                                    <a href="mailto:info@example.com">info@example.com</a>
+                                    <a href="mailto:mockup.design.bd@gmail.com">mockup.design.bd@gmail.com</a>
                                 </li>
                             </ul>
                         </div>
@@ -152,12 +210,12 @@
                                                About Us
                                             </a>
                                         </li>
-                                        <li>
+                                        <li class="active">
                                             <a href="our-story.html">
                                                 Our Story
                                             </a>
                                         </li>
-                                        <li class="active">
+                                        <li>
                                             <a href="service.html">
                                                 Services
                                             </a>
@@ -206,16 +264,15 @@
         <div id="smooth-wrapper">
             <div id="smooth-content">
                 <!-- Breadcrumb-wrapper Start -->
-                <div class="breadcrumb-wrapper bg-cover" style="background-image: url('assets/img/breadcrumb.jpg');">
+                <div class="breadcrumb-wrapper bg-cover" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80');">
                     <div class="container">
                         <div class="page-heading">
                             <div class="breadcrumb-sub-title">
-                                <h1 class="wow fadeInUp" data-wow-delay=".3s">Services</h1>
+                                <h1 class="wow fadeInUp" data-wow-delay=".3s">Our Story</h1>
                             </div>
                             <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".5s">
                                 <li>
                                     <a href="index.html">
-                                        
                                         Home
                                     </a>
                                 </li>
@@ -223,93 +280,39 @@
                                     <span style="position: absolute; left: 50%; transform: translateX(-50%);">/</span>
                                 </li>
                                 <li>
-                                    Services
+                                    Our Story
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
-        
-                <!-- Service Section Start -->
-                <section class="service-section fix section-padding">
+
+                <!-- Our Story Section Start -->
+                <section class="service-details-section section-padding">
                     <div class="container">
-                        <div class="section-title-area bor-bottom margin-top-40">
-                        </div>
-                        <div class="service-wrapper">
-                            <ul class="style-border">
-                                <li class="service-list">
-                                    <div class="content">
-                                        <h4 class="wow fadeInUp">001</h4>
-                                        <h3 class="wow img-custom-anim-left"><a>Logo &amp; Brand Identity Design</a></h3>
-                                    </div>
-                                    <p class="wow img-custom-anim-right" data-wow-duration="1.5s" data-wow-delay="0.4s">
-                                        At MOCKUP, we're the brainy weirdos who turn bold ideas into brilliant visuals. From brand names and taglines to voice, tone, logos, and beyond---we build brands with serious vibes. Whether you're starting fresh or leveling up, we're your creative sidekicks ready to make your brand unforgettable.
+                        <div class="row g-5 align-items-stretch">
+                            <div class="col-lg-6 wow fadeInUp" data-wow-delay=".2s">
+                                <div class="story-image h-100">
+                                    <img src="https://images.unsplash.com/photo-1522071901873-411886a10004?auto=format&fit=crop&w=1200&q=80" alt="Creative team collaborating in office">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 wow fadeInUp" data-wow-delay=".4s">
+                                <div class="story-intro h-100 d-flex flex-column justify-content-center">
+                                    <h2>
+                                        Building brands with
+                                        <span class="highlight">strategy, creativity, and impact</span>
+                                    </h2>
+                                    <p>
+                                        MOCKUP, is a leading creative agency in Bangladesh, established in 2022 by top graduates from the University of Dhaka's Faculty of Fine Arts .
                                     </p>
-                                </li>
-                                <li class="service-list">
-                                    <p class="wow img-custom-anim-left" data-wow-duration="1.5s" data-wow-delay="0.3s">
-                                        At MOCKUP, we design print and packaging that turn heads and tell your story---loud and proud. From sleek business cards to shelf-popping packaging and merch people actually want to wear, we make sure every detail screams you. Boring? Never heard of it.
+                                    <p>
+                                        With a strong background in renowned advertising agencies, our expert team delivers high-quality, results-driven branding and digital marketing solutions. Based in Dhaka and serving all of Bangladesh, we specialize in professional logo design, brand identity development, print and packaging design, creative content writing, social media marketing, media buying, corporate event management, website design and development, as well as animation and motion graphics.
                                     </p>
-                                    <div class="content">
-                                        <h4 class="wow fadeInUp">002</h4>
-                                        <h3 class="wow img-custom-anim-right" data-wow-duration="1.5s" data-wow-delay="0.4s"><a>Print &amp; Merchandise Design</a></h3>
-                                    </div>
-                                </li>
-                                <li class="service-list">
-                                    <div class="content">
-                                        <h4 class="wow fadeInUp">003</h4>
-                                        <h3 class="wow img-custom-anim-left"><a>Content Design &amp; Writing</a></h3>
-                                    </div>
-                                    <p class="wow img-custom-anim-right" data-wow-duration="1.5s" data-wow-delay="0.4s">
-                                        At MOCKUP, we turn ideas into words and visuals that connect, convert, and stick. Whether you need scroll-stopping social posts, slick pitch decks, or a full brand story, we design and write content that actually feels like you---and speaks to your people.
+                                    <p>
+                                        Whether you're launching a startup or scaling an established business, MOCKUP provides customized creative services that boost brand visibility, drive engagement, and ensure consistent online and offline presence. Partner with one of the best creative agencies in Bangladesh to turn your ideas into impactful brand experiences.
                                     </p>
-                                </li>
-                                <li class="service-list">
-                                    <p class="wow img-custom-anim-left" data-wow-duration="1.5s" data-wow-delay="0.3s">
-                                        At MOCKUP, we don't just post for likes---we build social media strategies that grow your brand, boost engagement, and connect you with your people. From static posts to reels, we plan, design, write, post, manage, and optimize so you don't have to.
-                                    </p>
-                                    <div class="content">
-                                        <h4 class="wow fadeInUp">004</h4>
-                                        <h3 class="wow img-custom-anim-right" data-wow-duration="1.5s" data-wow-delay="0.4s"><a>Social Media Marketing</a></h3>
-                                    </div>
-                                </li>
-                                <li class="service-list">
-                                    <div class="content">
-                                        <h4 class="wow fadeInUp">005</h4>
-                                        <h3 class="wow img-custom-anim-left"><a>Media Buying Management</a></h3>
-                                    </div>
-                                    <p class="wow img-custom-anim-right" data-wow-duration="1.5s" data-wow-delay="0.4s">
-                                        At MOCKUP, we don't just buy media---we make smart, data-backed moves that put your brand where it matters. Whether it's digital, print, or outdoor, we plan, negotiate, and manage ad placements that bring real results---not just impressions.
-                                    </p>
-                                </li>
-                                <li class="service-list">
-                                    <p class="wow img-custom-anim-left" data-wow-duration="1.5s" data-wow-delay="0.3s">
-                                        At MOCKUP, we craft websites that don't just look amazing---they guide, engage, and convert. From sleek landing pages to full-blown eCommerce experiences, we design with your audience in mind and build with clean, responsive code that just works.
-                                    </p>
-                                    <div class="content">
-                                        <h4 class="wow fadeInUp">006</h4>
-                                        <h3 class="wow img-custom-anim-right" data-wow-duration="1.5s" data-wow-delay="0.4s"><a>Web Design &amp; Development</a></h3>
-                                    </div>
-                                </li>
-                                <li class="service-list">
-                                    <div class="content">
-                                        <h4 class="wow fadeInUp">007</h4>
-                                        <h3 class="wow img-custom-anim-left"><a>App Design &amp; Development</a></h3>
-                                    </div>
-                                    <p class="wow img-custom-anim-right" data-wow-duration="1.5s" data-wow-delay="0.4s">
-                                        At MOCKUP, we design and build apps that don't just function---they feel great to use. Whether it's iOS, Android, or cross-platform, we focus on intuitive UX, clean UI, and solid development that turns your idea into a product users love.
-                                    </p>
-                                </li>
-                                <li class="service-list">
-                                    <p class="wow img-custom-anim-left" data-wow-duration="1.5s" data-wow-delay="0.3s">
-                                        At MOCKUP, we plan and execute events that wow your guests and spotlight your brand. From intimate gatherings to large-scale launches, we handle the details so you can enjoy the moment---stress-free and confident.
-                                    </p>
-                                    <div class="content">
-                                        <h4 class="wow fadeInUp">008</h4>
-                                        <h3 class="wow img-custom-anim-right" data-wow-duration="1.5s" data-wow-delay="0.4s"><a>Event Management</a></h3>
-                                    </div>
-                                </li>
-                            </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -318,8 +321,8 @@
                 <section id="contact-us" class="cta-section fix section-padding section-bg margin-top-10 pt-0">
                     <div class="container">
                         <div class="cta-wrapper bg-cover" style="background-color: #000; background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('images/MOCKUP-banner-wide-png.png');">
-                            <h2 class="wow fadeInUp" data-wow-delay=".3s">Got an idea? <br> Let’s build something great.</h2>
-                            <a href="#contact-us" class="theme-btn cta-primary-static wow fadeInUp" data-wow-delay=".5s">
+                            <h2 class="wow fadeInUp" data-wow-delay=".3s">Have a vision? <br> Let’s shape your next brand story.</h2>
+                            <a href="index.html#contact-us" class="theme-btn cta-primary-static wow fadeInUp" data-wow-delay=".5s">
                                 <span class="icon-1">
                                     <img src="assets/img/icon/10.svg" alt="img">
                                 </span>
@@ -387,7 +390,7 @@
                 </footer>
             </div>
         </div>
-        
+
      <!--<< All JS Plugins >>-->
       <script src="assets/js/jquery-3.7.1.min.js"></script>
       <!--<< Viewport Js >>-->
