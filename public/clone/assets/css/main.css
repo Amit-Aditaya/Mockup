@@ -8273,16 +8273,17 @@ input.main-search-input::placeholder {
   margin-bottom: 30px;
 }
 .testimonial-wrapper .testimonial-box-items .client-info img {
-  display: none;
-}
-.testimonial-wrapper .testimonial-box-items .client-info::before {
-  content: "";
   width: 54px;
   height: 54px;
+  min-width: 54px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #0f1724 0%, #1f2937 100%);
+  object-fit: cover;
+  object-position: center;
+  display: block;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.55);
-  flex: 0 0 auto;
+}
+.testimonial-wrapper .testimonial-box-items .client-info::before {
+  content: none;
 }
 .testimonial-wrapper .testimonial-box-items .client-info .client-content h5 {
   color: var(--white);
