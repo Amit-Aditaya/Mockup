@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!--<< Header Area >>-->
+    <head>
+        <!-- ========== Meta Tags ========== -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Gramentheme">
+        <meta name="description" content="Mockup - Portfolio">
+        <meta property="og:title" content="Mockup - Portfolio">
+        <meta property="og:description" content="Explore our creative portfolio showcasing branding, design, and marketing work.">
+        <meta property="og:type" content="website">
+        <meta property="og:image" content="images/mockup_logo/logo-vertical.png">
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="Mockup - Portfolio">
+        <meta name="twitter:description" content="Explore our creative portfolio showcasing branding, design, and marketing work.">
+        <meta name="twitter:image" content="images/mockup_logo/logo-vertical.png">
+        <!-- ======== Page title ============ -->
+        <title>Portfolio - Mockup</title>
+        <!--<< Favcion >>-->
+        <link rel="icon" type="image/png" href="images/mockup_logo/logo-vertical.png">
+        <link rel="shortcut icon" href="images/mockup_logo/logo-vertical.png">
+        <link rel="apple-touch-icon" href="images/mockup_logo/logo-vertical.png">
+        <!--<< Bootstrap min.css >>-->
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <!--<< Animate.css >>-->
+        <link rel="stylesheet" href="assets/css/animate.css">
+        <!--<< Magnific Popup.css >>-->
+        <link rel="stylesheet" href="assets/css/magnific-popup.css">
+        <!--<< MeanMenu.css >>-->
+        <link rel="stylesheet" href="assets/css/meanmenu.css">
+        <!--<< Swiper Bundle.css >>-->
+        <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+        <!--<< Nice Select.css >>-->
+        <link rel="stylesheet" href="assets/css/nice-select.css">
+        <!--<< Color.css >>-->
+        <link rel="stylesheet" href="assets/css/color.css">
+        <!--<< Main.css >>-->
+        <link rel="stylesheet" href="assets/css/main.css">
+
+        <style>
+            /* ===== Portfolio Category Sections ===== */
+            .portfolio-category {
+                margin-bottom: 70px;
+            }
+            .portfolio-category:last-child {
+                margin-bottom: 0;
+            }
+            .category-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 16px;
+                margin-bottom: 32px;
+                padding-bottom: 16px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            }
+            .category-header h3 {
+                font-size: 28px;
+                font-weight: 700;
+                color: #0f172a;
+                margin: 0;
+            }
+
+            /* Category rows optimized for large sets (20-30+ images) */
+            .gallery-grid {
+                display: flex;
+                overflow-x: auto;
+                overflow-y: hidden;
+                gap: 16px;
+                padding-bottom: 8px;
+                scroll-snap-type: x proximity;
+                scroll-behavior: smooth;
+                scrollbar-width: thin;
+                scrollbar-color: rgba(89, 210, 243, 0.45) transparent;
+            }
+            .gallery-grid::-webkit-scrollbar {
+                height: 6px;
+            }
+            .gallery-grid::-webkit-scrollbar-thumb {
+                background: rgba(89, 210, 243, 0.45);
+                border-radius: 99px;
+            }
+            .gallery-grid::-webkit-scrollbar-track {
+                background: rgba(0, 0, 0, 0.08);
+                border-radius: 99px;
+            }
+
+            .gallery-thumb {
+                position: relative;
+                flex: 0 0 clamp(170px, 18vw, 240px);
+                border-radius: 12px;
+                overflow: hidden;
+                cursor: pointer;
+                aspect-ratio: 1 / 1;
+                background: #121821;
+                border: 1px solid rgba(255, 255, 255, 0.05);
+                scroll-snap-align: start;
+            }
+            .gallery-thumb img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.5s ease;
+                display: block;
+            }
+            .gallery-thumb:hover img {
+                transform: scale(1.08);
+            }
+            .gallery-thumb::after {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: rgba(0, 0, 0, 0);
+                transition: background 0.3s ease;
+            }
+            .gallery-thumb:hover::after {
+                background: rgba(0, 0, 0, 0.25);
+            }
+            .gallery-thumb .thumb-zoom {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) scale(0.7);
+                z-index: 2;
+                width: 44px;
+                height: 44px;
+                background: #59D2F3;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                transition: opacity 0.3s ease, transform 0.3s ease;
+            }
+            .gallery-thumb:hover .thumb-zoom {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            .gallery-thumb .thumb-zoom svg {
+                width: 18px;
+                height: 18px;
+                fill: #00121a;
+            }
+
+            .category-nav {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                margin-left: auto;
+            }
+            .cat-nav-btn {
+                width: 34px;
+                height: 34px;
+                border-radius: 50%;
+                border: 1px solid rgba(15, 23, 42, 0.25);
+                background: rgba(89, 210, 243, 0.1);
+                color: #0f172a;
+                cursor: pointer;
+                font-size: 18px;
+                line-height: 1;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.2s ease;
+            }
+            .cat-nav-btn:hover {
+                background: #59D2F3;
+                border-color: #59D2F3;
+            }
+
+            /* ===== Custom Lightbox ===== */
+            .portfolio-lightbox {
+                display: none;
+                position: fixed;
+                inset: 0;
+                z-index: 999999;
+                background: rgba(0, 0, 0, 0.95);
+                flex-direction: column;
+            }
+            .portfolio-lightbox.active {
+                display: flex;
+            }
+
+            .lb-topbar {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 16px 24px;
+                flex-shrink: 0;
+            }
+            .lb-topbar .lb-title {
+                font-size: 18px;
+                font-weight: 700;
+                color: #fff;
+            }
+            .lb-topbar .lb-counter {
+                color: #8793a5;
+                font-size: 14px;
+                margin-top: 2px;
+            }
+            .lb-topbar .lb-close {
+                background: none;
+                border: none;
+                color: #fff;
+                font-size: 28px;
+                cursor: pointer;
+                padding: 4px 10px;
+                line-height: 1;
+                transition: color 0.2s ease;
+            }
+            .lb-topbar .lb-close:hover {
+                color: #59D2F3;
+            }
+
+            .lb-main {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                min-height: 0;
+                padding: 0 60px;
+            }
+            .lb-main .lb-image-wrap {
+                max-width: 100%;
+                max-height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .lb-main .lb-image-wrap img {
+                max-width: 100%;
+                max-height: calc(100vh - 240px);
+                object-fit: contain;
+                border-radius: 8px;
+                user-select: none;
+            }
+
+            .lb-arrow {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.1);
+                border: 1px solid rgba(255, 255, 255, 0.15);
+                color: #fff;
+                font-size: 22px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background 0.2s ease;
+                z-index: 2;
+            }
+            .lb-arrow:hover {
+                background: rgba(89, 210, 243, 0.25);
+            }
+            .lb-arrow.lb-prev { left: 12px; }
+            .lb-arrow.lb-next { right: 12px; }
+
+            .lb-bottom {
+                flex-shrink: 0;
+                padding: 12px 24px 16px;
+            }
+            .lb-description {
+                color: #8793a5;
+                font-size: 14px;
+                text-align: center;
+                margin-bottom: 12px;
+                font-style: italic;
+            }
+            .lb-thumbstrip {
+                display: flex;
+                gap: 8px;
+                justify-content: center;
+                overflow-x: auto;
+                padding: 4px 0;
+                scrollbar-width: thin;
+                scrollbar-color: rgba(89,210,243,0.3) transparent;
+            }
+            .lb-thumbstrip::-webkit-scrollbar {
+                height: 4px;
+            }
+            .lb-thumbstrip::-webkit-scrollbar-thumb {
+                background: rgba(89,210,243,0.3);
+                border-radius: 2px;
+            }
+            .lb-thumbstrip img {
+                width: 64px;
+                height: 64px;
+                object-fit: cover;
+                border-radius: 8px;
+                cursor: pointer;
+                opacity: 0.4;
+                transition: opacity 0.2s ease, border-color 0.2s ease;
+                border: 2px solid transparent;
+                flex-shrink: 0;
+            }
+            .lb-thumbstrip img.active {
+                opacity: 1;
+                border-color: #59D2F3;
+            }
+            .lb-thumbstrip img:hover {
+                opacity: 0.8;
+            }
+
+            @media (max-width: 767px) {
+                .category-header h3 { font-size: 22px; }
+                .gallery-thumb { flex-basis: 62vw; }
+                .cat-nav-btn {
+                    width: 30px;
+                    height: 30px;
+                    font-size: 16px;
+                }
+                .lb-main { padding: 0 50px; }
+                .lb-arrow { width: 36px; height: 36px; font-size: 18px; }
+                .lb-thumbstrip img { width: 48px; height: 48px; }
+            }
+        </style>
+    </head>
+    <body>
+
+        <!-- Preloader Start -->
+        <div id="preloader" class="preloader">
+            <div class="animation-preloader">
+                <div class="spinner">                
+                </div>
+                <div class="txt-loading">
+                    <img src="images/mockup_logo/logo-horizontal.png" alt="logo-img" class="preloader-logo">
+                </div>
+                <p class="text-center">Loading</p>
+            </div>
+            <div class="loader">
+                <div class="row">
+                    <div class="col-3 loader-section section-left">
+                        <div class="bg"></div>
+                    </div>
+                    <div class="col-3 loader-section section-left">
+                        <div class="bg"></div>
+                    </div>
+                    <div class="col-3 loader-section section-right">
+                        <div class="bg"></div>
+                    </div>
+                    <div class="col-3 loader-section section-right">
+                        <div class="bg"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back To Top Start -->
+        <button id="back-top" class="back-to-top">
+            <span aria-hidden="true">↑</span>
+        </button>
+
+        <!--<< Mouse Cursor Start >>-->  
+        <div class="mouse-cursor cursor-outer"></div>
+        <div class="mouse-cursor cursor-inner"></div>
+
+        <!-- Offcanvas Area Start -->
+        <div class="fix-area">
+            <div class="offcanvas__info">
+                <div class="offcanvas__wrapper">
+                    <div class="offcanvas__content">
+                        <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
+                            <div class="offcanvas__logo">
+                                <a href="index.html">
+                                    <img src="images/mockup_logo/logo-horizontal.png" alt="logo-img" style="max-height: 48px; width: auto;">
+                                </a>
+                            </div>
+                            <div class="offcanvas__close">
+                                <button>
+                                <span aria-hidden="true">✕</span>
+                                </button>
+                            </div>
+                        </div>
+                        <h3 class="offcanvas-title">About Us</h3>
+                        <p>
+                            MOCKUP is a leading creative agency in Bangladesh, turning ideas into impactful brand experiences.
+                        </p>
+                        <div class="social-icon d-flex align-items-center">
+    <a href="https://www.facebook.com/mockupagency" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M13.5 21v-7.5H16l.5-3h-3V8.6c0-.9.3-1.6 1.7-1.6h1.4V4.3c-.2 0-1.1-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.9v2.2H8.5v3h2.2V21h2.8z"/>
+        </svg>
+    </a>
+    <a href="https://www.instagram.com/mockup_agency/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M7.8 3h8.4C19.4 3 22 5.6 22 8.8v6.4c0 3.2-2.6 5.8-5.8 5.8H7.8C4.6 21 2 18.4 2 15.2V8.8C2 5.6 4.6 3 7.8 3zm0 1.9A3.9 3.9 0 0 0 3.9 8.8v6.4A3.9 3.9 0 0 0 7.8 19h8.4a3.9 3.9 0 0 0 3.9-3.8V8.8A3.9 3.9 0 0 0 16.2 5H7.8zm8.8 1.5a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4zM12 7.6a4.4 4.4 0 1 1 0 8.8 4.4 4.4 0 0 1 0-8.8zm0 1.9a2.5 2.5 0 1 0 0 5.1 2.5 2.5 0 0 0 0-5z"/>
+        </svg>
+    </a>
+</div>
+                        <div class="mobile-menu fix mb-3"></div>
+                        <div class="offcanvas__contact">
+                            <h3>Information</h3>
+                            <ul class="contact-list">
+                                <li>
+                                    <span>
+                                        Address:
+                                    </span>
+                                    West Barontek, Pallabi, Mirpur, Dhaka, Bangladesh
+                                </li>
+                                <li>
+                                    <span>
+                                        Call Us:
+                                    </span>
+                                    <a href="tel:+8801839397446">+880 1839 397446</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        Email:
+                                    </span>
+                                    <a href="mailto:mockup.design.bd@gmail.com">mockup.design.bd@gmail.com</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="offcanvas__overlay"></div>
+
+        <!-- Header Section Start -->
+        <header id="header-sticky" class="header-1">
+            <div class="container-fluid">
+                <div class="mega-menu-wrapper">
+                    <div class="header-main">
+                        <div class="logo">
+                            <a href="index.html" class="header-logo">
+                                <img src="images/mockup_logo/logo-horizontal.png" alt="logo-img" style="max-height: 48px; width: auto;">
+                            </a>
+                        </div>
+                        <div class="mean__menu-wrapper">
+                            <div class="main-menu">
+                                <nav id="mobile-menu">
+                                    <ul>
+                                        <li>
+                                            <a href="index.html">
+                                                Home
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="index.html#about-us">
+                                               About Us
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="our-story.html">
+                                                Our Story
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="service.html">
+                                                Services
+                                            </a>
+                                        </li>
+                                        <li class="active">
+                                            <a href="portfolio.html">
+                                                Portfolio
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="index.html#testimonials">
+                                                Testimonials
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="index.html#contact-us">
+                                                Contact
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="header-right d-flex justify-content-end align-items-center">
+                            <div class="header-button">
+                                <a href="index.html#contact-us" class="theme-btn border-white">
+                                    <span class="icon-1">
+                                        <img src="assets/img/icon/10.svg" alt="img">
+                                    </span>
+                                    get in touch
+                                    <span class="icon-2">
+                                        <img src="assets/img/icon/11.svg" alt="img">
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="header__hamburger d-xl-none my-auto">
+                                <div class="sidebar__toggle">
+                                    <div class="header-bar">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div id="smooth-wrapper">
+            <div id="smooth-content">
+                <!-- Breadcrumb-wrapper Start -->
+                <div class="breadcrumb-wrapper bg-cover" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=1600&q=80');">
+                    <div class="container">
+                        <div class="page-heading">
+                            <div class="breadcrumb-sub-title">
+                                <h1 class="wow fadeInUp" data-wow-delay=".3s">Portfolio</h1>
+                            </div>
+                            <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".5s">
+                                <li>
+                                    <a href="index.html">
+                                        Home
+                                    </a>
+                                </li>
+                                <li aria-hidden="true" style="position: relative; width: 0;">
+                                    <span style="position: absolute; left: 50%; transform: translateX(-50%);">/</span>
+                                </li>
+                                <li>
+                                    Portfolio
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Featured Project Start -->
+                <section class="section-padding">
+                    <div class="container">
+                        <div class="section-title-area" style="margin-bottom: 60px;">
+                            <div class="section-title">
+                                <h6 class="wow fadeInUp">our work</h6>
+                                <h2 class="tp-char-animation" style="color: #0f172a;">
+                                    Projects that speak <br> louder than words
+                                </h2>
+                            </div>
+                        </div>
+
+                        <!-- ========== CATEGORY 1: Logo & Branding ========== -->
+                        <div class="portfolio-category wow fadeInUp" data-wow-delay=".2s">
+                            <div class="category-header">
+                                <h3>Logo &amp; Branding</h3>
+                            </div>
+                            <div class="gallery-grid" data-gallery="branding" data-gallery-title="Logo &amp; Branding">
+                                <div class="gallery-thumb" data-desc="Complete brand identity for a luxury fashion house, including logo, color palette, and brand guidelines.">
+                                    <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80" alt="Logo design project">
+                                    <span class="thumb-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></span>
+                                </div>
+                                <div class="gallery-thumb" data-desc="Modern minimalist logo for a tech startup, featuring clean geometry and bold typography.">
+                                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=600&q=80" alt="Brand identity project">
+                                    <span class="thumb-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></span>
+                                </div>
+                                <div class="gallery-thumb" data-desc="Restaurant brand overhaul featuring a hand-drawn wordmark and warm earth tone palette.">
+                                    <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=600&q=80" alt="Restaurant branding">
+                                    <span class="thumb-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></span>
+                                </div>
+                                <div class="gallery-thumb" data-desc="Full visual identity for a fitness studio chain, from naming to signage rollout.">
+                                    <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=600&q=80" alt="Fitness branding">
+                                    <span class="thumb-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></span>
+                                </div>
+                                <div class="gallery-thumb" data-desc="Corporate rebrand for a consulting firm, featuring a monogram logo and professional stationery.">
+                                    <img src="https://images.unsplash.com/photo-1634942537034-2531766767d1?auto=format&fit=crop&w=600&q=80" alt="Corporate branding">
+                                    <span class="thumb-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></span>
+                                </div>
+                                <div class="gallery-thumb" data-desc="E-commerce brand identity with playful iconography and vibrant gradient color system.">
+                                    <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=600&q=80" alt="E-commerce brand">
+                                    <span class="thumb-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></span>
+                                </div>
+                                <div class="gallery-thumb" data-desc="Nonprofit organization visual identity with symbolic logo representing community empowerment.">
+                                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&q=80" alt="Nonprofit branding">
+                                    <span class="thumb-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></span>
+                                </div>
+                                <div class="gallery-thumb" data-desc="Boutique hotel brand with elegant serif typography and luxury gold accents.">
+                                    <img src="https://images.unsplash.com/photo-1617727553252-65863c156eb0?auto=format&fit=crop&w=600&q=80" alt="Hotel branding">
+                                    <span class="thumb-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ========== CATEGORY 2: Merchandise Design ========== -->
+                        <div class="portfolio-category wow fadeInUp" data-wow-delay=".2s">
+                            <div class="category-header">
+                                <h3>Merchandise Design</h3>
+                            </div>
+                            <div class="gallery-grid" data-gallery="merchandise" data-gallery-title="Merchandise Design">
+                                <div class="gallery-thumb" data-desc="Custom t-shirt collection for a streetwear brand with bold graphic prints.">
+                                    <img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?auto=format&fit=crop&w=600&q=80" alt="T-shirt merchandise">
+                                    <span class="thumb-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></span>
+                                </div>
+                                <div class="gallery-thumb" data-desc="Corporate gift set featuring branded tote bags, mugs, and notebooks.">
+                                    <img src="https://images.unsplash.com/photo-1614179689702-355944cd0918?auto=format&fit=crop&w=600&q=80" alt="Corporate merchandise">
+                                    <span class="thumb-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></span>
+                                </div>
+                                <div class="gallery-thumb" data-desc="Event merchandise line for a music festival, including caps, wristbands, and posters.">
+                                    <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=600&q=80" alt="Event merchandise">
+                                    <span class="thumb-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></span>
+                                </div>
+                                <div class="gallery-thumb" data-desc="Eco-friendly packaging and merch for a sustainable clothing brand.">
+                                    <img src="https://images.unsplash.com/photo-1607082349566-187342175e2f?auto=format&fit=crop&w=600&q=80" alt="Eco merchandise">
+                                    <span class="thumb-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></span>
+                                </div>
+                                <div class="gallery-thumb" data-desc="Branded hoodie and apparel line for a gaming community.">
+                                    <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=600&q=80" alt="Gaming merch">
+                                    <span class="thumb-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></span>
+                                </div>
+                                <div class="gallery-thumb" data-desc="Limited edition merch drop for a café brand with custom illustrations.">
+                                    <img src="https://images.unsplash.com/photo-1572584643905-a06032e0a98c?auto=format&fit=crop&w=600&q=80" alt="Café merch">
+                                    <span class="thumb-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ========== CATEGORY 3: Print Design ========== -->
+                        <div class="portfolio-category wow fadeInUp" data-wow-delay=".2s">
+                            <div class="category-header">
+                                <h3>Print Design</h3>
+                            </div>
+                            <div class="gallery-grid" data-gallery="print" data-gallery-title="Print Design">
+                                <div class="gallery-thumb" data-desc="Premium business card and letterhead set for a law firm.">
+                                    <img src="https://images.unsplash.com/photo-1531973576160-7125cd663d86?auto=format&fit=crop&w=600&q=80" alt="Business card design">
+                                    <span class="thumb-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></span>
+                                </div>
+                                <div class="gallery-thumb" data-desc="Tri-fold brochure design for a real estate development company.">
+                                    <img src="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=600&q=80" alt="Brochure design">
+                                    <span class="thumb-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></span>
+                                </div>
+                                <div class="gallery-thumb" data-desc="Product packaging design for an artisan tea brand with foil embossing.">
+                                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80" alt="Product packaging">
+                                    <span class="thumb-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></span>
+                                </div>
+                                <div class="gallery-thumb" data-desc="Event poster and flyer design for a cultural festival with vibrant typography.">
+                                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=600&q=80" alt="Poster design">
+                                    <span class="thumb-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></span>
+                                </div>
+                                <div class="gallery-thumb" data-desc="Annual report design for a financial institution with infographic layouts.">
+                                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80" alt="Annual report">
+                                    <span class="thumb-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></span>
+                                </div>
+                                <div class="gallery-thumb" data-desc="Menu and table tent design for a fine dining restaurant with custom photography.">
+                                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80" alt="Menu design">
+                                    <span class="thumb-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ========== CATEGORY 4: Social Media ========== -->
+                        <div class="portfolio-category wow fadeInUp" data-wow-delay=".2s">
+                            <div class="category-header">
+                                <h3>Social Media</h3>
+                            </div>
+                            <div class="gallery-grid" data-gallery="social" data-gallery-title="Social Media">
+                                <div class="gallery-thumb" data-desc="Instagram content strategy and visual grid for a lifestyle brand.">
+                                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=80" alt="Social media content">
+                                    <span class="thumb-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></span>
+                                </div>
+                                <div class="gallery-thumb" data-desc="Facebook and Instagram ad campaign creatives for a fashion e-commerce store.">
+                                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Ad campaign">
+                                    <span class="thumb-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></span>
+                                </div>
+                                <div class="gallery-thumb" data-desc="Social media post templates and story highlight covers for a café chain.">
+                                    <img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=600&q=80" alt="Café social media">
+                                    <span class="thumb-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></span>
+                                </div>
+                                <div class="gallery-thumb" data-desc="Reel and carousel content production for a health and wellness brand.">
+                                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Health brand content">
+                                    <span class="thumb-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></span>
+                                </div>
+                                <div class="gallery-thumb" data-desc="Launch campaign across all social platforms for a new food delivery app.">
+                                    <img src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&fit=crop&w=600&q=80" alt="App launch campaign">
+                                    <span class="thumb-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></span>
+                                </div>
+                                <div class="gallery-thumb" data-desc="Monthly social media management and content creation for a real estate agency.">
+                                    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=600&q=80" alt="Real estate social">
+                                    <span class="thumb-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- Lightbox -->
+                <div class="portfolio-lightbox" id="portfolioLightbox">
+                    <div class="lb-topbar">
+                        <div>
+                            <div class="lb-title" id="lbTitle">Logo &amp; Branding</div>
+                            <div class="lb-counter" id="lbCounter">1 of 8</div>
+                        </div>
+                        <button class="lb-close" id="lbClose" aria-label="Close gallery"><span aria-hidden="true">&#10005;</span></button>
+                    </div>
+                    <div class="lb-main">
+                        <button class="lb-arrow lb-prev" id="lbPrev" aria-label="Previous image"><span aria-hidden="true">&#8249;</span></button>
+                        <div class="lb-image-wrap">
+                            <img id="lbImage" src="" alt="Portfolio image">
+                        </div>
+                        <button class="lb-arrow lb-next" id="lbNext" aria-label="Next image"><span aria-hidden="true">&#8250;</span></button>
+                    </div>
+                    <div class="lb-bottom">
+                        <div class="lb-description" id="lbDescription"></div>
+                        <div class="lb-thumbstrip" id="lbThumbstrip"></div>
+                    </div>
+                </div>
+
+                <!-- Cta Section Start -->
+                <section id="contact-us" class="cta-section fix section-padding section-bg margin-top-10 pt-0">
+                    <div class="container">
+                        <div class="cta-wrapper bg-cover" style="background-color: #000; background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('images/MOCKUP-banner-wide-png.png');">
+                            <h2 class="wow fadeInUp" data-wow-delay=".3s">Like what you see? <br> Let's create something amazing together.</h2>
+                            <a href="index.html#contact-us" class="theme-btn cta-primary-static wow fadeInUp" data-wow-delay=".5s">
+                                <span class="icon-1">
+                                    <img src="assets/img/icon/10.svg" alt="img">
+                                </span>
+                                get in touch
+                                <span class="icon-2">
+                                    <img src="assets/img/icon/11.svg" alt="img">
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Footer Section Start -->
+                <footer class="footer-section">
+                    <div class="container custom-container">
+                        <div class="footer-wrapper">
+                            <div class="footer-wrapper-items">
+                                <div class="footer-social-contact wow fadeInUp" data-wow-delay=".3s">
+                                    <ul class="contact-list" style="list-style: none; padding-left: 0;">
+                                        <li style="display: flex; align-items: center; gap: 12px; text-decoration: none; text-transform: none;">
+                                            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+                                                <path fill="currentColor" d="M3 6.75A2.75 2.75 0 0 1 5.75 4h12.5A2.75 2.75 0 0 1 21 6.75v10.5A2.75 2.75 0 0 1 18.25 20H5.75A2.75 2.75 0 0 1 3 17.25V6.75zm2 .31V17.25c0 .41.34.75.75.75h12.5a.75.75 0 0 0 .75-.75V7.06l-6.26 4.7a1.25 1.25 0 0 1-1.5 0L5 7.06zm1.74-1.06L12 9.94 17.26 6H6.74z"/>
+                                            </svg>
+                                            <a href="mailto:mockup.design.bd@gmail.com" style="text-decoration: none; text-transform: none;">mockup.design.bd@gmail.com</a>
+                                        </li>
+                                        <li style="display: flex; align-items: center; gap: 12px; text-decoration: none; text-transform: none;">
+                                            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+                                                <path fill="currentColor" d="M6.62 3.52a1.75 1.75 0 0 1 2.17-1.1l2.16.72a1.75 1.75 0 0 1 1.17 1.8l-.14 2.3a1.75 1.75 0 0 1-.87 1.4l-1.35.78a14.36 14.36 0 0 0 4.72 4.72l.78-1.35a1.75 1.75 0 0 1 1.4-.87l2.3-.14a1.75 1.75 0 0 1 1.8 1.17l.72 2.16a1.75 1.75 0 0 1-1.1 2.17l-1.55.52a4.75 4.75 0 0 1-4.17-.6A19.88 19.88 0 0 1 6.28 9.24a4.75 4.75 0 0 1-.6-4.17l.94-1.55z"/>
+                                            </svg>
+                                            <a href="tel:+8801839397446" style="text-decoration: none; text-transform: none;">+880 1839 397446</a>
+                                        </li>
+                                        <li style="display: flex; align-items: center; gap: 12px; text-decoration: none; text-transform: none;">
+                                            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+                                                <path fill="currentColor" d="M12 2.5a7.25 7.25 0 0 1 7.25 7.25c0 4.67-5.28 10.26-6.77 11.74a.69.69 0 0 1-.97 0C10.03 20 4.75 14.42 4.75 9.75A7.25 7.25 0 0 1 12 2.5zm0 2a5.25 5.25 0 0 0-5.25 5.25c0 2.99 3.13 7.08 5.25 9.42 2.12-2.34 5.25-6.43 5.25-9.42A5.25 5.25 0 0 0 12 4.5zm0 2.5a2.75 2.75 0 1 1 0 5.5 2.75 2.75 0 0 1 0-5.5z"/>
+                                            </svg>
+                                            <span style="text-decoration: none; text-transform: none;">West Barontek, Pallabi, Mirpur,<br>Dhaka, Bangladesh</span>
+                                        </li>
+                                    </ul>
+                                    <div class="social-icon d-flex align-items-center">
+    <a href="https://www.facebook.com/mockupagency" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M13.5 21v-7.5H16l.5-3h-3V8.6c0-.9.3-1.6 1.7-1.6h1.4V4.3c-.2 0-1.1-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.9v2.2H8.5v3h2.2V21h2.8z"/>
+        </svg>
+    </a>
+    <a href="https://www.instagram.com/mockup_agency/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M7.8 3h8.4C19.4 3 22 5.6 22 8.8v6.4c0 3.2-2.6 5.8-5.8 5.8H7.8C4.6 21 2 18.4 2 15.2V8.8C2 5.6 4.6 3 7.8 3zm0 1.9A3.9 3.9 0 0 0 3.9 8.8v6.4A3.9 3.9 0 0 0 7.8 19h8.4a3.9 3.9 0 0 0 3.9-3.8V8.8A3.9 3.9 0 0 0 16.2 5H7.8zm8.8 1.5a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4zM12 7.6a4.4 4.4 0 1 1 0 8.8 4.4 4.4 0 0 1 0-8.8zm0 1.9a2.5 2.5 0 1 0 0 5.1 2.5 2.5 0 0 0 0-5z"/>
+        </svg>
+    </a>
+</div>
+                                </div>
+                                <div class="footer-author wow fadeInUp" data-wow-delay=".5s">
+                                    <span>Designed by</span>
+                                    <h4><a href="https://maatrik.it.com" target="_blank" rel="noopener noreferrer">Maatrik IT</a></h4>
+                                </div>
+                                <p class="wow fadeInUp" data-wow-delay=".7s">
+                                    ©2026 <br>
+                                    mockup design <br>
+                                    all rights reserved
+                                </p>
+                            </div>
+                            <a href="index.html" class="exolax-text">MOCKUP</a>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+        <!--<< All JS Plugins >>-->
+        <script src="assets/js/jquery-3.7.1.min.js"></script>
+        <!--<< Viewport Js >>-->
+        <script src="assets/js/viewport.jquery.js"></script>
+        <!--<< Bootstrap Js >>-->
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <!-- Parallax Js -->
+        <script src="assets/js/parallax.js"></script>
+        <!--<< Gsap Js >>-->
+        <script src="assets/js/gsap.js"></script>
+        <!--<< Gsap Scroll Plugin Js >>-->
+        <script src="assets/js/gsap-scroll-to-plugin.js"></script>
+        <!--<< Gsap Scroll Snoother Js >>-->
+        <script src="assets/js/gsap-scroll-smoother.js"></script>
+        <!--<< Gsap Scroll Trigger Js >>-->
+        <script src="assets/js/gsap-scroll-trigger.js"></script>
+        <!--<< Gsap Scroll Split Text Js >>-->
+        <script src="assets/js/gsap-split-text.js"></script>
+        <!--<< Choma Min Js >>-->
+        <script src="assets/js/chroma.min.js"></script>
+        <!--<< Nice Select Js >>-->
+        <script src="assets/js/jquery.nice-select.min.js"></script>
+        <!--<< Waypoints Js >>-->
+        <script src="assets/js/jquery.waypoints.js"></script>
+        <!--<< Counterup Js >>-->
+        <script src="assets/js/jquery.counterup.min.js"></script>
+        <!--<< Swiper Slider Js >>-->
+        <script src="assets/js/swiper-bundle.min.js"></script>
+        <!--<< MeanMenu Js >>-->
+        <script src="assets/js/jquery.meanmenu.min.js"></script>
+        <!--<< Magnific Popup Js >>-->
+        <script src="assets/js/jquery.magnific-popup.min.js"></script>
+        <!--<< GSAP Animation Js >>-->
+        <script src="assets/js/animation.js"></script>
+        <!--<< Wow Animation Js >>-->
+        <script src="assets/js/wow.min.js"></script>
+        <!--<< Wow Animation Js >>-->
+        <script src="assets/js/customer-gsap-animation.js"></script>
+        <!--<< Main.js >>-->
+        <script src="assets/js/main.js"></script>
+
+        <!-- Portfolio Lightbox Script -->
+        <script>
+            (function () {
+                var lightbox = document.getElementById('portfolioLightbox');
+                // Keep modal outside transformed wrappers (GSAP smooth content)
+                // so position: fixed behaves relative to the viewport.
+                if (lightbox && lightbox.parentNode !== document.body) {
+                    document.body.appendChild(lightbox);
+                }
+                var lbImage = document.getElementById('lbImage');
+                var lbTitle = document.getElementById('lbTitle');
+                var lbCounter = document.getElementById('lbCounter');
+                var lbDescription = document.getElementById('lbDescription');
+                var lbThumbstrip = document.getElementById('lbThumbstrip');
+                var lbClose = document.getElementById('lbClose');
+                var lbPrev = document.getElementById('lbPrev');
+                var lbNext = document.getElementById('lbNext');
+
+                var currentGallery = [];
+                var currentIndex = 0;
+                var currentTitle = '';
+
+                function openLightbox(galleryEl, index) {
+                    var thumbs = galleryEl.querySelectorAll('.gallery-thumb');
+                    currentGallery = [];
+                    currentTitle = galleryEl.getAttribute('data-gallery-title') || 'Gallery';
+
+                    thumbs.forEach(function (t) {
+                        var imageEl = t.querySelector('img');
+                        var thumbSrc = imageEl.getAttribute('src') || '';
+                        var fullSrc = imageEl.getAttribute('data-full-src') || thumbSrc;
+
+                        currentGallery.push({
+                            src: fullSrc,
+                            thumb: thumbSrc,
+                            desc: t.getAttribute('data-desc') || ''
+                        });
+                    });
+
+                    currentIndex = index;
+                    renderLightbox();
+                    lightbox.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+
+                function renderLightbox() {
+                    var item = currentGallery[currentIndex];
+                    lbImage.onerror = function () {
+                        // Fallback to thumbnail URL if a full-size URL fails to load.
+                        if (lbImage.src !== item.thumb) {
+                            lbImage.src = item.thumb;
+                        }
+                    };
+                    lbImage.src = item.src;
+                    lbImage.alt = item.desc;
+                    lbTitle.textContent = currentTitle;
+                    lbCounter.textContent = (currentIndex + 1) + ' of ' + currentGallery.length;
+                    lbDescription.textContent = item.desc;
+
+                    lbThumbstrip.innerHTML = '';
+                    currentGallery.forEach(function (g, i) {
+                        var img = document.createElement('img');
+                        img.src = g.thumb;
+                        img.alt = 'Thumbnail ' + (i + 1);
+                        if (i === currentIndex) img.classList.add('active');
+                        img.addEventListener('click', function () {
+                            currentIndex = i;
+                            renderLightbox();
+                        });
+                        lbThumbstrip.appendChild(img);
+                    });
+
+                    // scroll active thumb into view
+                    var activeThumb = lbThumbstrip.querySelector('.active');
+                    if (activeThumb) {
+                        activeThumb.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                    }
+                }
+
+                function closeLightbox() {
+                    lightbox.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+
+                lbClose.addEventListener('click', closeLightbox);
+                lbPrev.addEventListener('click', function () {
+                    currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+                    renderLightbox();
+                });
+                lbNext.addEventListener('click', function () {
+                    currentIndex = (currentIndex + 1) % currentGallery.length;
+                    renderLightbox();
+                });
+
+                lightbox.addEventListener('click', function (e) {
+                    if (e.target === lightbox || e.target.classList.contains('lb-main')) {
+                        closeLightbox();
+                    }
+                });
+
+                document.addEventListener('keydown', function (e) {
+                    if (!lightbox.classList.contains('active')) return;
+                    if (e.key === 'Escape') closeLightbox();
+                    if (e.key === 'ArrowLeft') { currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length; renderLightbox(); }
+                    if (e.key === 'ArrowRight') { currentIndex = (currentIndex + 1) % currentGallery.length; renderLightbox(); }
+                });
+
+                // Add horizontal navigation controls for each category row.
+                document.querySelectorAll('.gallery-grid').forEach(function (grid) {
+                    var header = grid.previousElementSibling;
+                    if (!header || !header.classList.contains('category-header')) return;
+
+                    var nav = document.createElement('div');
+                    nav.className = 'category-nav';
+
+                    var prevBtn = document.createElement('button');
+                    prevBtn.type = 'button';
+                    prevBtn.className = 'cat-nav-btn';
+                    prevBtn.setAttribute('aria-label', 'Scroll gallery left');
+                    prevBtn.innerHTML = '<span aria-hidden="true">&#8249;</span>';
+
+                    var nextBtn = document.createElement('button');
+                    nextBtn.type = 'button';
+                    nextBtn.className = 'cat-nav-btn';
+                    nextBtn.setAttribute('aria-label', 'Scroll gallery right');
+                    nextBtn.innerHTML = '<span aria-hidden="true">&#8250;</span>';
+
+                    prevBtn.addEventListener('click', function () {
+                        grid.scrollBy({ left: -Math.max(grid.clientWidth * 0.8, 260), behavior: 'smooth' });
+                    });
+                    nextBtn.addEventListener('click', function () {
+                        grid.scrollBy({ left: Math.max(grid.clientWidth * 0.8, 260), behavior: 'smooth' });
+                    });
+
+                    nav.appendChild(prevBtn);
+                    nav.appendChild(nextBtn);
+                    header.appendChild(nav);
+                });
+
+                // Attach click events to all gallery thumbs
+                document.querySelectorAll('.gallery-grid').forEach(function (grid) {
+                    var thumbs = grid.querySelectorAll('.gallery-thumb');
+                    thumbs.forEach(function (thumb, idx) {
+                        thumb.addEventListener('click', function () {
+                            openLightbox(grid, idx);
+                        });
+                    });
+                });
+            })();
+        </script>
+    </body>
+</html>
